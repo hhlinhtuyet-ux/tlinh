@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoang Tuyet Linh - Portfolio & Guestbook App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        section {
+            margin: 35px 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+        }
+        .app-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-submit:hover {
+            background: #2980b9;
+        }
+        .message-list {
+            margin-top: 25px;
+            text-align: left;
+        }
+        .msg-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .msg-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+        .msg-text {
+            color: #4a5568;
+            margin-top: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 35px;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Hoang Tuyet Linh</h1>
+        <p>Konkuk University | International Commerce and Business</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <section>
+        <div class="card">
+            <h2>About Me</h2>
+            <p>Hello! My name is Hoang Tuyet Linh. I am currently a freshman at Konkuk University, majoring in International Commerce and Business. I am an enthusiastic and open-minded student, always eager to learn new concepts and adapt to global environments.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>Hobbies & Interests</h2>
+            <p>Outside of classes, my absolute favorite passion is traveling. I love planning and going on memorable trips with my family and friends. Traveling helps me experience diverse cultures and see the world from broader perspectives.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <h2>Future Career Goals</h2>
+            <p>My ultimate long-term goal is to become a successful, independent, and professional Business Woman. I aim to constantly develop my leadership skills and manage impactful business operations in the global industry.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="card" style="text-align: center;">
+            <h2>Linh's Interactive Guestbook App</h2>
+            <p style="color: #718096; font-size: 0.95rem;">This is a built-in web application that allows visitors to leave feedback or messages dynamically.</p>
+            
+            <div class="app-box">
+                <div class="form-group">
+                    <label for="visitorName">Your Name:</label>
+                    <input type="text" id="visitorName" placeholder="Enter your name...">
+                </div>
+                <div class="form-group">
+                    <label for="visitorMessage">Your Message:</label>
+                    <textarea id="visitorMessage" rows="3" placeholder="Leave a comment for Linh..."></textarea>
+                </div>
+                
+                <button class="btn-submit" onclick="addMessage()">Submit Message</button>
+                
+                <div class="message-list">
+                    <h3>Recent Messages:</h3>
+                    <div id="messagesContainer">
+                        <div class="msg-item">
+                            <div class="msg-name">Professor (Sample)</div>
+                            <div class="msg-text">Great job on creating this web page application using AI tools, Linh!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 Hoang Tuyet Linh - GitHub Pages Assignment</p>
+</footer>
+
+<script>
+    function addMessage() {
+        const nameInput = document.getElementById('visitorName');
+        const msgInput = document.getElementById('visitorMessage');
+        const container = document.getElementById('messagesContainer');
+        
+        const name = nameInput.value.trim();
+        const message = msgInput.value.trim();
+        
+        if (!name || !message) {
+            alert("Please fill in both Name and Message fields!");
+            return;
+        }
+        
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('msg-item');
+        
+        const nameDiv = document.createElement('div');
+        nameDiv.classList.add('msg-name');
+        nameDiv.innerText = name;
+        
+        const textDiv = document.createElement('div');
+        textDiv.classList.add('msg-text');
+        textDiv.innerText = message;
+        
+        msgDiv.appendChild(nameDiv);
+        msgDiv.appendChild(textDiv);
+        
+        container.insertBefore(msgDiv, container.firstChild);
+        
+        nameInput.value = '';
+        msgInput.value = '';
+    }
+</script>
+
+</body>
+</html>
